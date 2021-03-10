@@ -1,0 +1,84 @@
+﻿<Window x:Class="autoinstall_wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:autoinstall_wpf"
+        mc:Ignorable="d"
+        Title="Autoinstall" Height="800" Width="1471" WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <Button x:Name="button_install" Content="Установить" HorizontalAlignment="Left" Margin="46,707,0,0" VerticalAlignment="Top" Width="858" Click="Button_Click" Height="52"/>
+        <Image Margin="929,0,0,0" Source="Image6.png" Stretch="UniformToFill"/>
+        <Menu HorizontalAlignment="Left" Height="18" VerticalAlignment="Top" Width="1463">
+            <MenuItem Header="Web+Навигатор" Height="18" x:Name="subItem1" Click="subItem1_Click">
+                <MenuItem.Icon>
+                    <Image Source="main.ico"/>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Header="Электронные каталоги" x:Name="subItem2" Click="subItem2_Click">
+                <MenuItem.Icon>
+                    <Image Source="folder.ico"/>
+                </MenuItem.Icon>
+            </MenuItem>
+        </Menu>
+        <Canvas x:Name="Canvas1" HorizontalAlignment="Left" Height="348" Margin="0,18,0,0" VerticalAlignment="Top" Width="418" Opacity="0">
+            <Label Content="Web+навигатор" Canvas.Left="170" Canvas.Top="10" FontSize="14"/>
+            <CheckBox x:Name="checkbox_webnavigator" Content="Web Navigator v7.0" Canvas.Left="80" Canvas.Top="50"/>
+            <CheckBox Content="Web+навигатор СОиР" Canvas.Left="80" Canvas.Top="80" Tag="bkotwo" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+            <CheckBox Content="Web+навигатор ОШГП-2" Canvas.Left="80" Canvas.Top="110" Tag="bkoprop" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+            <CheckBox Content="Web+навигатор Осмаливания" Canvas.Left="80" Canvas.Top="140" Tag="bkoosm" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+            <CheckBox Content="Web+навигатор ЦЭС" Canvas.Left="80" Canvas.Top="170" Tag="bkoces" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+            <CheckBox Content="Web+навигатор ОШГП-1" Canvas.Left="80" Canvas.Top="200" Tag="bkoone" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+            <CheckBox Content="Web+навигатор ЦСП" Canvas.Left="80" Canvas.Top="230" Tag="bkocsp" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+            <CheckBox Content="Web+навигатор ДОУ" Canvas.Left="80" Canvas.Top="260" Tag="bkodou" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+            <CheckBox Content="Web+навигатор ЦСП ДОУ (вращающая печь №3)" Canvas.Left="80" Canvas.Top="290" Tag="bkodou2" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+        </Canvas>
+        <Canvas x:Name="Canvas2" HorizontalAlignment="Left" Height="684" Margin="0,18,0,0" VerticalAlignment="Top" Width="1404">
+            <Label Content="Электронные каталоги" Canvas.Left="512" Canvas.Top="10" FontSize="16"/>
+            <Label Content="Введите имя компьютера" Canvas.Left="45" Canvas.Top="45" FontSize="18"/>
+            <ComboBox x:Name="pc_combobox" Canvas.Left="45" Canvas.Top="84" Width="221" IsEditable="True" TextBoxBase.TextChanged="Pc_combobox_TextChanged" IsTextSearchEnabled="False" KeyUp="Pc_combobox_KeyUp" SelectionChanged="Pc_combobox_SelectionChanged"/>
+            <Label Content="Выберете пользователя на удаленном компьютере" Canvas.Left="10" Canvas.Top="195"/>
+            <Button x:Name="button_connect" Content="Подключиться" Canvas.Left="45" Canvas.Top="126" Width="221" Height="50" Click="Button_connect_Click" IsEnabled="False"/>
+            <ComboBox x:Name="users_combobox" Canvas.Left="45" Canvas.Top="226" Width="221" SelectionChanged="Users_combobox_SelectionChanged"/>
+            <CheckBox Content="Laborant SQL" Canvas.Left="325" Canvas.Top="84" Tag="Laborant_SQL.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox Content="Laborant" Canvas.Left="325" Canvas.Top="104" Tag="Laborant.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox Content="Laborant ЦСП" Canvas.Left="325" Canvas.Top="126" Tag="Laborant_ЦСП.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox Content="Учет техники" Canvas.Left="322" Canvas.Top="243" Tag="UTNew.application.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox Content="Учет прикладных программ" Canvas.Left="322" Canvas.Top="263" Tag="Учет прикладных программ.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox Content="ConsultantPlus" Canvas.Left="322" Canvas.Top="283" Tag="ConsultantPlus.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox Content="Электронный каталог калькуляций РМЦ" Canvas.Left="636" Canvas.Top="226" Tag="Электронный каталог калькуляций РМЦ.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox Content="Электронный каталог возвратных накладных" Canvas.Left="322" Canvas.Top="403" Tag="Электронный каталог возвратных накладных.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox Content="Электронный каталог комплектации продукции БКО" Canvas.Left="322" Canvas.Top="423" Tag="Электронный каталог комплектации продукции БКО.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox Content="Электронный каталог документов по вопросам перспективного развития производства на АО БКО" Canvas.Left="322" Canvas.Top="543" Tag="Электронный каталог документов по вопросам перспективного развития производства на АО БКО.lnk"/>
+            <CheckBox Content="Электронный каталог документов сектора по реализации пропантов" Canvas.Left="322" Canvas.Top="463" Tag="Электронный каталог документов сектора по реализации пропантов.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox Content="Электронный каталог корпусов применяемых ЦСП" Canvas.Left="636" Canvas.Top="87" Tag="Электронный каталог корпусов применяемых ЦСП.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox Content="Электронный каталог документов по технологической оснастке ЦСП" Canvas.Left="636" Canvas.Top="107" Tag="Электронный каталог документов по технологической оснастке ЦСП.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox Content="Электронный каталог документов по инжинирингу продукции" Canvas.Left="322" Canvas.Top="503" Tag="Электронный каталог документов по инжинирингу продукции.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox Content="Электронный каталог документов по нормированию труда РМЦ" Canvas.Left="636" Canvas.Top="246" Tag="Электронный каталог документов по нормированию труда РМЦ.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox Content="Электронный каталог внешнеэкономических контрактов по импорту сырья" Canvas.Left="322" Canvas.Top="523" Tag="Электронный каталог внешнеэкономических контрактов по импорту сырья.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox Content="Электронный каталог документов бюро интеллектуальной собственности" Canvas.Left="322" Canvas.Top="483" Tag="Электронный каталог документов бюро интеллектуальной собственности.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox Content="Электронный каталог документов помольного Участка ЦСП" Canvas.Left="636" Canvas.Top="127" Tag="Электронный каталог документов помольного Участка ЦСП.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox Content="Электронный каталог документов по технологической оснастке РМЦ" Canvas.Left="636" Canvas.Top="266" Tag="Электронный каталог документов по технологической оснастке РМЦ.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox Content="Электронный каталог экспортных внешнеэкономических контрактов" Canvas.Left="322" Canvas.Top="443" Tag="Электронный каталог экспортных внешнеэкономических контрактов.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox Content="Электронный каталог документов по корпусам пресс-форм ЦСП" Canvas.Left="636" Canvas.Top="147" Tag="Электронный каталог документов по корпусам пресс-форм ЦСП.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox Content="Электронный каталог документов мониторинга графика выпуска тары ТНП ДОЦ" Canvas.Left="322" Canvas.Top="563" Tag="Электронный каталог документов мониторинга графика выпуска тары ТНП ДОЦ.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox Content="Электронный каталог документов по обучению ОКиСР" Canvas.Left="322" Canvas.Top="583" Tag="Электронный каталог документов по обучению ОКиСР.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox Content="Электронный каталог программ к станкам ЧПУ РМЦ" Canvas.Left="636" Canvas.Top="286" Tag="Электронный каталог программ к станкам ЧПУ РМЦ.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox Content="Электронный каталог медиа материалов предприятия" Canvas.Left="322" Canvas.Top="603" Tag="Электронный каталог медиа материалов предприятия.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox Content="Laborant ДОУ ЦСП" Canvas.Left="325" Canvas.Top="146" Tag="Laborant_ДОУ_ЦСП.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox Content="Laborant ЦЗЛ" Canvas.Left="324" Canvas.Top="166" Tag="Laborant_ЦЗЛ.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox Content="TechExpert" Canvas.Left="322" Canvas.Top="223" Tag="TechExpert.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox Content="Мониторинг работы производства" Canvas.Left="45" Canvas.Top="303" Tag="Мониторинг работы производства.lnk" Checked="CheckBox_Checked_Link" Unchecked="CheckBox_Unchecked_Link"/>
+            <CheckBox x:Name="public_lnk" Content="Всем пользователям" Canvas.Left="45" Canvas.Top="283" Checked="Public_lnk_Checked"/>
+            <Label Content="Laborant" Canvas.Left="395" Canvas.Top="53"/>
+            <Label Content="Каталоги ЦСП" Canvas.Left="712" Canvas.Top="53"/>
+            <Label Content="Программы и ярлыки" Canvas.Left="373" Canvas.Top="195"/>
+            <Label Content="Каталоги РМЦ" Canvas.Left="723" Canvas.Top="195"/>
+            <Label Content="Остальные каталоги" Canvas.Left="544" Canvas.Top="372"/>
+            <Label x:Name="os_info" Content="" Canvas.Left="45" Canvas.Top="443" Height="66" Width="258"/>
+            <Button x:Name="all_check_uncheck" Content="Выбрать все" Canvas.Left="45" Canvas.Top="352" Width="221" Click="all_check_uncheck_click"/>
+            <Label x:Name="Programms" Content="" Canvas.Left="45" Canvas.Top="523" Width="221" Height="95"/>
+        </Canvas>
+    </Grid>
+</Window>
