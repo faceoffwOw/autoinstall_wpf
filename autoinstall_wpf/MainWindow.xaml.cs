@@ -60,7 +60,7 @@ namespace autoinstall_wpf
             try
             {
                 Process process = new Process();
-                process.StartInfo.FileName = @"\\nas_gto\GTO\OmniReports (Программа 197)\webnavigatorclient.msi";
+                process.StartInfo.FileName = @"\\network_path\path\program.msi";
                 process.StartInfo.UseShellExecute = true;
                 process.StartInfo.ErrorDialog = true;
                 process.StartInfo.Arguments = "/qb";
@@ -391,7 +391,7 @@ namespace autoinstall_wpf
 
             if (!lnkCheckMonitoring.Contains("Мониторинг работы производства.lnk") && !Public_lnk.Contains("Мониторинг работы производства.lnk"))
             {
-                File.Copy(@"\\nas_gto\gto\_Линки\_Ярлыки новые\Мониторинг работы производства.lnk", Path.Combine(deskDir, "Мониторинг работы производства.lnk"));
+                File.Copy(@"\\network_path\path\_Линки\_Ярлыки новые\Мониторинг работы производства.lnk", Path.Combine(deskDir, "Мониторинг работы производства.lnk"));
             }
         }
 
@@ -422,7 +422,7 @@ namespace autoinstall_wpf
                 {
                     if (!File.Exists(deskDir + "\\" + item.link) && !File.Exists(@"\c$\Users\Public\Desktop" + item.link))
                     {
-                        File.Copy(@"\\nas_gto\gto\_Линки\_Ярлыки новые\" + item.link, Path.Combine(deskDir, item.link));
+                        File.Copy(@"\\network_path\path\_Линки\_Ярлыки новые\" + item.link, Path.Combine(deskDir, item.link));
                         msg += item.link + "\n";
                     }
                     else
