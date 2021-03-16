@@ -168,7 +168,7 @@ namespace autoinstall_wpf
                         var profileSID = queryObj["SID"].ToString();
                         string full_account = new SecurityIdentifier(profileSID).Translate(typeof(NTAccount)).ToString();
 
-                        if (!full_account.Contains("gto_admin"))
+                        if (!full_account.Contains("admin"))
                         {
                             string[] account = full_account.Split(new char[] { '\\' });
                             users.Add(account[1]);
